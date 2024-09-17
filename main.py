@@ -12,7 +12,8 @@ if __name__ == "__main__":
 
     match userInput:
         case 1:
-            print(g())
+            file_path = "text_files/passwords.txt"
+            print(g(file_path))
         case 2:
             userInput1 = input("What's your password?\n")
             #Possible addition, every character put in input be turned into an *
