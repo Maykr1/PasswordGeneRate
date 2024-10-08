@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0md0k%8)f@5rdl%54ec7s@2o0oypk0mh1hpw#n%^_-qy0l_av1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'PasswordGeneRateApp.apps.PasswordGeneRateAppConfig',
+    'PasswordGeneRateApp.apps.PasswordgenerateappConfig',
 ]
+#Update each time an app is created
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

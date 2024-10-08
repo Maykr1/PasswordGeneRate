@@ -7,4 +7,6 @@ def home(request):
         "age" : "20"
     }
 
-    return render(request, 'home.html')
+    return render(request, 'home.html', context)
+
+#update each time a new html is made
