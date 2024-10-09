@@ -5,7 +5,14 @@
     {% endblock %}
 </head>
 <body>
-    <a href = "{% url 'home'%}">Take me home</a>
+    <nav>
+        <ul>
+            <li><a href = "{% url 'home'%}">Home</a></li>
+            <li><a href = "{% url 'generator'%}">Generator</a></li>
+            <li><a href = "{% url 'insultor'%}">Insultor</a></li>
+        </ul>
+    </nav>
+    
     {% block content %}
     {% endblock %}
 </body>
