@@ -3,10 +3,23 @@
 {% load static %}
 {% block head %}
     <link rel = 'stylesheet' href = "{% static 'PasswordGeneRateApp/style.css' %}">
+    <title>Password Generator</title>
 {% endblock %}
 
 {% block content %}
-    <h1>This is a generator</h1>
-    <p>Hello my name is {{name}}</p>
-    <p>My age is {{age}}</p>
+    <h2>Password {{name}}</h2>
+    <p>This is the minimum criteria:</p>
+    <table>
+        <tr>
+            <th>Criteria:</th>
+        </tr>
+        {% for item in criteria %}
+            <tr>
+                <td>{{item}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p>Please enter your password below:</p>
+    <p>[input box]</p>
+    <p>check button</p>
 {% endblock %}

@@ -3,10 +3,11 @@
 {% load static %}
 {% block head %}
     <link rel = 'stylesheet' href = "{% static 'PasswordGeneRateApp/style.css' %}">
+    <title>Home</title>
 {% endblock %}
 
 {% block content %}
-    <h1>This is a test</h1>
-    <p>Hello my name is {{name}}</p>
-    <p>My age is {{age}}</p>
+    <h1>PasswordGeneRate</h1>
+    <h2>{{name}}</h2>
+    <p>Welcome to <b>PasswordGeneRate</b>—your all-in-one tool for creating stronger passwords and having some fun while doing it! Our <b>Password Generator</b> helps you craft secure, unique passwords based on a set of criteria, ensuring your accounts are well-protected. And if you're curious about how your current password measures up, try our <b>Password Insultor</b>! It doesn't just tell you if your password is weak—it'll throw a "playful" insult if your password is on the list of commonly used or easily guessable passwords. Strengthen your security while enjoying a bit of humor along the way!</p>
 {% endblock %}

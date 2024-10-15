@@ -6,7 +6,7 @@
 </head>
 <body>
     <nav>
-        <ul>
+        <ul class = "navbar">
             <li><a href = "{% url 'home'%}">Home</a></li>
             <li><a href = "{% url 'generator'%}">Generator</a></li>
             <li><a href = "{% url 'insultor'%}">Insultor</a></li>
@@ -15,4 +15,9 @@
     
     {% block content %}
     {% endblock %}
+
+    <footer>
+        <p>&copy 2024. All rights reserved.</p>
+        <a href = "{% url 'privacy'%}">Privacy Policy</a>
+    </footer>
 </body>
