@@ -82,9 +82,7 @@ footer {
   list-style-type: none;
   background-color: #333;
   justify-content: center;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
+  padding: 15px;
 }
 
 footer p, a {
