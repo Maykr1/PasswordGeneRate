@@ -7,9 +7,15 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Password {{name}}</h2>
+    <h2>Password Insultor</h2>
     <p>Hello! Please enter your password below:</p>
-    <p>[input box]</p>
-    <p>check button</p>
-    <p>text output</p>
+    <form method = "POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type = "submit">Check Password</button>
+    </form>
+
+    {% if insult %}
+        <h2>{{ insult }}</h2>
+    {% endif %}
 {% endblock %}
