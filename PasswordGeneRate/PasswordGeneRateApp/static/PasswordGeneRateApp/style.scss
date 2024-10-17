@@ -1,0 +1,171 @@
+/* Variables */
+$primary-bg-color: #333;
+$secondary-bg-color: #575757;
+$hover-bg-color: #0056b3;
+$text-color: white;
+$border-color: #444;
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  list-style-type: none;
+  background-color: $primary-bg-color;
+  justify-content: center;
+  padding: 10px;
+
+  li {
+    margin: 0 15px;
+  }
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+
+    &:hover {
+      background-color: $secondary-bg-color;
+      border-radius: 4px;
+    }
+  }
+}
+
+/* Paragraph */
+p {
+  font-size: 25px;
+  padding: 15px;
+}
+
+/* Headings */
+h1 {
+  padding: 25px;
+  font-size: 50px;
+  color: $text-color;
+  background-image: url('background.jpg');
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+
+h2 {
+  padding: 25px;
+  font-size: 35px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  width: 30%;
+  margin: 0 auto;
+
+  th, td {
+    border: 1px solid black;
+    text-align: left;
+  }
+
+  tr:nth-child(even) {
+    background-color: #eee;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #fff;
+  }
+}
+
+/* Footer */
+footer {
+  list-style-type: none;
+  background-color: $primary-bg-color;
+  justify-content: center;
+  padding: 15px;
+
+  p, a {
+    color: $text-color;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 15px;
+
+    &:hover {
+      background-color: $secondary-bg-color;
+      border-radius: 4px;
+    }
+  }
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto;
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid $primary-bg-color;
+    border-radius: 4px;
+    background-color: #e6f7ff;
+    color: $primary-bg-color;
+
+    &:focus {
+      border-color: $border-color;
+      outline: none;
+    }
+  }
+
+  button {
+    background-color: $border-color;
+    color: $text-color;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-bg-color;
+    }
+  }
+}
+
+/* Content */
+.content {
+  text-align: left;
+  padding-left: 20px;
+
+  h2 {
+    padding-left: 0px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  a {
+    color: black;
+    text-decoration-line: underline;
+  }
+}
+
+//Say sass --watch style.scss:style.css for automatic changes
