@@ -19,7 +19,10 @@
             </tr>
         {% endfor %}
     </table>
-    <p>Please enter your password below:</p>
+    <p>Please click the button below for your strong password:</p>
+    <form method = "POST">
+        {% csrf_token %}
+        <button type="submit">Generate New Password</button>
+    </form>
     <p>{{ password }}</p>
-    <p>check button</p>
 {% endblock %}

@@ -56,6 +56,10 @@ h2 {
   font-size: 35px;
 }
 
+h3 {
+  font-size: 25px;
+}
+
 table, th, td {
   border: 1px solid black;
   margin: 0 auto;
@@ -133,4 +137,22 @@ form button {
 
 form button:hover {
   background-color: #0056b3;
+}
+
+.content {
+  text-align:left;
+  padding-left: 20px;
+}
+
+.content h2 {
+  padding-left: 0px;
+}
+
+.content p {
+  font-size: 15px;
+}
+
+.content a {
+  color: black;
+  text-decoration-line:underline;
 }
