@@ -41,7 +41,9 @@ def insultor(request):
         form = InsultForm(request.POST)
         if form.is_valid():
             password = form.cleaned_data['password']
-            if Password.objects.filter(password = password).exists():
+            if len(password) < 4:
+                insult = "Password is too short!"
+            elif Password.objects.filter(password = password).exists():
                 insult = random.choice(Insult.objects.all()).insult
             else:
                 insult = "Good password!"
