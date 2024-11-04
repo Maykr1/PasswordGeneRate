@@ -3,6 +3,7 @@ from .forms import InsultForm
 from .models import Password, Insult
 import random
 import string
+import re
 
 password_criteria = ["4 characters", "1 uppercase letter", "1 lowercase letter", "1 number", "1 special character (!, @, $, etc.)"]
 
@@ -41,8 +42,19 @@ def insultor(request):
         form = InsultForm(request.POST)
         if form.is_valid():
             password = form.cleaned_data['password']
+
             if len(password) < 4:
                 insult = "Password is too short!"
+            elif not bool(re.search(r'[A-Z]', password)):
+                insult = "Needs to have at least one uppercase letter"
+            elif not bool(re.search(r'[a-z]', password)):
+                insult = "Needs to have at least one lowercase letter"
+            elif not bool(re.search(r'\d', password)):
+                insult  = "Needs to have at least one number"
+            elif not bool(re.search(r'[!@#$%^&*]', password)):
+                insult = "Needs to have at least one special character"
+            elif " " in password:
+                insult = "No spaces please!"
             elif Password.objects.filter(password = password).exists():
                 insult = random.choice(Insult.objects.all()).insult
             else:
