@@ -45,18 +45,18 @@ def insultor(request):
 
             if len(password) < 4:
                 insult = "Password is too short!"
+            elif " " in password:
+                insult = "No spaces please!"
+            elif Password.objects.filter(password = password).exists():
+                insult = random.choice(Insult.objects.all()).insult
             elif not bool(re.search(r'[A-Z]', password)):
                 insult = "Needs to have at least one uppercase letter"
             elif not bool(re.search(r'[a-z]', password)):
                 insult = "Needs to have at least one lowercase letter"
             elif not bool(re.search(r'\d', password)):
                 insult  = "Needs to have at least one number"
-            elif not bool(re.search(r'[!"#$%&()*+,-./:;<=>?@[]\^_`{|}~]', password)):
+            elif not bool(re.search(f'[{re.escape(string.punctuation)}]', password)):
                 insult = "Needs to have at least one special character"
-            elif " " in password:
-                insult = "No spaces please!"
-            elif Password.objects.filter(password = password).exists():
-                insult = random.choice(Insult.objects.all()).insult
             else:
                 insult = "Good password!"
     else:
