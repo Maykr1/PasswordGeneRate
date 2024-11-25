@@ -51,7 +51,7 @@ def insultor(request):
                 insult = "Needs to have at least one lowercase letter"
             elif not bool(re.search(r'\d', password)):
                 insult  = "Needs to have at least one number"
-            elif not bool(re.search(r'[!@#$%^&*]', password)):
+            elif not bool(re.search(r'[!"#$%&()*+,-./:;<=>?@[]\^_`{|}~]', password)):
                 insult = "Needs to have at least one special character"
             elif " " in password:
                 insult = "No spaces please!"
