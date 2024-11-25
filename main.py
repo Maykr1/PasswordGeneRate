@@ -1,6 +1,6 @@
 from generator import generator as g
 from insultor import insultor as i
-#this is the main.py. This part shows the options of the program. :)
+
 if __name__ == "__main__":
     initialText = """ Hello :D
     Please select an option:
