@@ -4,6 +4,11 @@ from .models import Password, Insult
 import random
 import string
 import re
+import sys
+try:
+    import Levenshtein
+except ImportError as e:
+    print(f"Import error (probably Levenshtein): {e}")
 
 password_criteria = ["4 characters", "1 uppercase letter", "1 lowercase letter", "1 number", "1 special character (!, @, $, etc.)"]
 
@@ -35,6 +40,25 @@ def generator(request):
     }
 
     return render(request, 'PasswordGeneRateApp/generator.html', context)
+    
+def check_pw_db(password: str, threshold=0.9) -> bool:
+    """
+    Checks if given *password* is (nearly) equal to any in the Password database.
+    """
+    # Levenshtein is used to compare similarity of two strings, or here two passwords.
+    if not "Levenshtein" in sys.modules:
+        return Password.objects.filter(password = password).exists()
+    
+    passwords = Password.objects.values_list("password", flat=True).distinct()
+    match = False
+
+    for check_pw in passwords.iterator():
+        ratio = Levenshtein.ratio(password, check_pw)
+        if ratio >= threshold:
+            match = True
+            break
+    
+    return match
 
 def insultor(request):
     insult = None
@@ -47,7 +71,7 @@ def insultor(request):
                 insult = "Password is too short!"
             elif " " in password:
                 insult = "No spaces please!"
-            elif Password.objects.filter(password = password).exists():
+            elif check_pw_db(password):
                 insult = random.choice(Insult.objects.all()).insult
             elif not bool(re.search(r'[A-Z]', password)):
                 insult = "Needs to have at least one uppercase letter"
